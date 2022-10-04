@@ -1,0 +1,22 @@
+.rest {
+  text-decoration: line-through;
+}
+
+.hiv {
+  color: blue;
+}
+
+.outside {
+  border: solid 5px;
+}
+.editing {
+  display: inline-flex;
+  height: 50;
+  border: solid 2px;
+  border-color: chartreuse;
+}
+.lbl {
+  color: blue;
+  font-family: fantasy;
+  
+}

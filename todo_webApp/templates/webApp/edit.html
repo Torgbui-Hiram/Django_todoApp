@@ -1,0 +1,32 @@
+{% extends 'webApp/base.html' %}
+{% load static %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% else %}
+<br><br>
+<center>
+    <h1 class="lbl ">Edit Item</h1><br>
+    <div class="editing shadow-lg p-3 mb-5 bg-white rounded">
+        <form class="" action="" method='POST'>
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="{{item.item}}" value="{{item.item}}"
+                aria-label="Search" name="item">
+            <input type="hidden" value="{{ item.completed }}" name="completed">
+            <br>
+            <center>
+                <input type="submit" class="btn btn-secondary">
+            </center>
+        </form>
+    </div>
+</center>
+{% endif %}
+
+{% endblock %}

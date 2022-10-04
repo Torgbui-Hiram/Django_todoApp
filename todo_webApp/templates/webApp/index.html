@@ -1,0 +1,47 @@
+{% extends 'webApp/base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<h3 class="hiv">LIST OF TODO </h3>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+<div class="outside container shadow p-3 mb-5 bg-white rounded">
+    {% if all_item %} <br>
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th style="text-align: center;" scope="col">TODO LIST</th>
+                <th style="text-align: center;" scope="col">STATE OF TODO</th>
+                <th style="text-align: center;" scope="col">REMOVE ITEM</th>
+            </tr>
+        </thead>
+        {% for things in all_item %}
+        {% if things.completed %}
+        <tr class="table-secondary">
+            <td class="rest">{{things.item}}</td>
+            <td><a href="{% url 'uncross' things.id %}">Uncross</a></td>
+            <td style="text-align: center;"><a href="{% url 'delete' things.id %}">delete</a> </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td><a href="{% url 'show' things.id %}">{{things.item}}</a></td>
+            <td><a href="{% url 'crossoff' things.id %}">Cross Off</a></td>
+            <td style="text-align: center;"><a href="{% url 'delete' things.id %}">delete</a> <br><a
+                    href="{% url 'edit' things.id %}"><strong>edit</strong></a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+<br>
+{% endif %}
+{% endblock %}

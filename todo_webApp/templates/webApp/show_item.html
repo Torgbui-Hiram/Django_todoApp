@@ -1,0 +1,16 @@
+{% extends 'webApp/base.html' %}
+{% load static %}
+{% block content %}
+<h1 style="color: blue;">Show Item</h1>
+<br>
+<center>
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{item.item}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{item.item}}</h5>
+            <p class="card-text">{{item.completed}}</p>
+        </div>
+    </div>
+</center>
+
+{% endblock %}
