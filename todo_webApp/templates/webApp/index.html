@@ -17,23 +17,32 @@
     {% if all_item %} <br>
     <table class="table table-bordered table-striped table-hover">
         <thead class="thead-dark">
-            <tr>
-                <th style="text-align: center;" scope="col">TODO LIST</th>
-                <th style="text-align: center;" scope="col">STATE OF TODO</th>
-                <th style="text-align: center;" scope="col">REMOVE ITEM</th>
-            </tr>
+            <th style="text-align: center;" scope="col">TODO LIST</th>
+            <th style="text-align: center;" scope="col">CONDITION</th>
+            <th style="text-align: center;" scope="col">DESCRIPTION</th>
+            <th style="text-align: center;" scope="col">DATE CREATED</th>
+            <th style="text-align: center;" scope="col">COMPLETED</th>
+            <th style="text-align: center;" scope="col">DELETE</th>
         </thead>
         {% for things in all_item %}
         {% if things.completed %}
         <tr class="table-secondary">
             <td class="rest">{{things.item}}</td>
             <td><a href="{% url 'uncross' things.id %}">Uncross</a></td>
+            <td><strong>{{things.description}}</strong></td>
+            <td>{{things.created_date}}</td>
+            <td>{{things.completed}}</td>
             <td style="text-align: center;"><a href="{% url 'delete' things.id %}">delete</a> </td>
         </tr>
         {% else %}
         <tr>
-            <td><a href="{% url 'show' things.id %}">{{things.item}}</a></td>
+            <td>
+                <h4><a href="{% url 'show' things.id %}">{{things.item}}</a></h4>
+            </td>
             <td><a href="{% url 'crossoff' things.id %}">Cross Off</a></td>
+            <td><strong>{{things.description}}</strong></td>
+            <td>{{things.created_date}}</td>
+            <td>{{things.completed}}</td>
             <td style="text-align: center;"><a href="{% url 'delete' things.id %}">delete</a> <br><a
                     href="{% url 'edit' things.id %}"><strong>edit</strong></a>
             </td>

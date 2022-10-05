@@ -17,9 +17,7 @@
     <div class="editing shadow-lg p-3 mb-5 bg-white rounded">
         <form class="" action="" method='POST'>
             {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="{{item.item}}" value="{{item.item}}"
-                aria-label="Search" name="item">
-            <input type="hidden" value="{{ item.completed }}" name="completed">
+            {{form.as_p}}
             <br>
             <center>
                 <input type="submit" class="btn btn-secondary">

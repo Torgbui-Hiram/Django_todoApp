@@ -18,5 +18,8 @@
 .lbl {
   color: blue;
   font-family: fantasy;
-  
+}
+
+.greenlbl {
+  color: brown;
 }

@@ -8,4 +8,5 @@ urlpatterns = [
     path('cross_off/<id>', views.cross_off, name='crossoff'),
     path('uncross/<id>', views.uncross, name='uncross'),
     path('edit_item/<id>', views.edit_item, name='edit'),
+    path('add_item', views.add_item, name='add'),
 ]

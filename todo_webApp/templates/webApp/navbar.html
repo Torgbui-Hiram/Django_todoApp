@@ -10,14 +10,16 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
-        
-          
-         
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'add' %}">Add <span class="sr-only">(current)</span></a>
+            </li>
+
+
+
         </ul>
-        <form class="form-inline my-2 my-lg-0" method="POST">
-            {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="Add item" aria-label="Search" name="item">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ADD TO LIST</button>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="" placeholder="Search item" aria-label="Search" name="">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="">SEARCH FROM LIST</button>
         </form>
     </div>
 </nav>

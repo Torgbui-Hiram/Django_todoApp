@@ -66,4 +66,19 @@ def edit_item(request, id):
             return redirect('home')
     else:
         item = List.objects.get(pk=id)
-        return render(request, 'webApp/edit.html', {'item': item})
+        form = ListForm(request.POST or None, instance=item)
+        return render(request, 'webApp/edit.html', {'item': item, 'form': form})
+
+
+# add item to list
+def add_item(request):
+    if request.method == "POST":
+        form = ListForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            messages.success(request, ("Your item was added succesfully"))
+            completed = True
+            return redirect('home')
+    else:
+        form = ListForm(request.POST or None)
+        return render(request, 'webApp/add_item.html', {'form': form})

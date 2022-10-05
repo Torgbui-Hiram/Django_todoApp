@@ -1,6 +1,19 @@
 {% extends 'webApp/base.html' %}
 {% load static %}
 {% block content %}
-<h1>Add Item</h1>
+<br>
+<center>
+    <h1 class="greenlbl">Add Item</h1>
+</center>
+<br>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <center>
+            <input class="btn btn-secondary" type="submit" value="submit">
+        </center>
+    </form>
+</div>
 
 {% endblock %}
