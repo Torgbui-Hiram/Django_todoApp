@@ -5,7 +5,7 @@ from . models import List
 class ListForm(forms.ModelForm):
     item = forms.CharField(max_length=200, widget=forms.TextInput(
         attrs={'class': 'form-control', 'placeholder': 'Add your item to the todo list!'}))
-    completed = forms.BooleanField(widget=forms.CheckboxInput(
+    completed = forms.BooleanField(disabled=True, widget=forms.CheckboxInput(
         attrs={'class': 'form-control'}))
     # user = forms.Select(attrs={'class': 'form-select'})
     # description = forms.Textarea(attrs={'class': 'form-control'})
