@@ -33,3 +33,14 @@
   border-radius: 50px;
   background-color: #713f8f;
 }
+
+.createlbl {
+  border: solid 2px;
+  border-radius: 50px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+}
+.register {
+  border: solid 2px;
+}
