@@ -8,7 +8,7 @@ class List(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    completed = models.BooleanField(default=False )
+    completed = models.BooleanField(default=False, blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

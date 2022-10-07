@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from . forms import ListForm
 from .models import List
 from django.contrib import messages
-
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 # index page function
+
+
 def home(request):
     if request.method == "POST":
         form = ListForm(request.POST or None)
@@ -82,3 +85,48 @@ def add_item(request):
     else:
         form = ListForm(request.POST or None)
         return render(request, 'webApp/add_item.html', {'form': form})
+
+
+# Register user
+def register_user(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(
+                request, ('Registration Successful'))
+            return redirect('home')
+
+    else:
+        form = UserCreationForm()
+    return render(request, 'webApp/register.html', {'form': form, })
+
+
+# Login user and authentication
+def user_login(request):
+    if request.method == "POST":
+        all_item = List.objects.all()
+        form = UserCreationForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password1']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'webApp/index.html', {'all_item': all_item, })
+        else:
+            messages.success(request, ('Sorry try again.'))
+            return redirect('register',)
+    else:
+        form = UserCreationForm()
+        return render(request, 'webApp/login_user.html', {'form': form, })
+
+
+# Logout user
+def logout_user(request):
+    logout(request)
+    messages.success(request, ('Logout successful!'))
+    return redirect('home')

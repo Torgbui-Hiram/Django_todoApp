@@ -23,3 +23,13 @@
 .greenlbl {
   color: brown;
 }
+.todo {
+  height: fit-content;
+  border: solid 2px;
+  text-align: center;
+  color: white;
+  font-family: monospace;
+  font-weight: bold;
+  border-radius: 50px;
+  background-color: #713f8f;
+}

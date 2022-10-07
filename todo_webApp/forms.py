@@ -1,5 +1,7 @@
 from django import forms
 from . models import List
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 
 class ListForm(forms.ModelForm):
@@ -23,3 +25,17 @@ class ListForm(forms.ModelForm):
         widgets = {'description': forms.Textarea(
             attrs={'class': 'form-control', 'placeholder': 'Please enter some details about your todo item!'}),
             'user': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select user', })}
+
+
+# User auth system
+# class UserResgistration(UserCreationForm):
+#     first_name = forms.CharField(
+#         max_length=50, widget={'class': 'from-control'})
+#     last_name = forms.CharField(
+#         max_length=50, widget={'class': 'from-control'})
+#     email = forms.EmailField(widget={'class': 'from-control'})
+
+    # class Meta:
+    #     model = List
+    #     fields = ('username', 'first_name', 'last_name',
+    #               'email', 'password1', 'password2')
