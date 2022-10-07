@@ -1,62 +1,60 @@
 {% extends 'webApp/base.html' %}
 {% load static %}
-<div class="container">
-    {% block content %}
-    <br><br>
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{message}}</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    {% endfor %}
-    {% endif %}
-    {% if user.is_authenticated %}
-    {% if all_item %} <br>
-    <div class="container shadow-lg p-3 mb-5 bg-white rounded">
-        <table class="container table table-bordered table-striped table-hover">
-            <h3 class="todo">List Of Todo Items</h3>
-            <thead class="thead-dark">
-                <th style="text-align: center;" scope="col">TODO LIST</th>
-                <th style="text-align: center;" scope="col">CONDITION</th>
-                <th style="text-align: center;" scope="col">DESCRIPTION</th>
-                <th style="text-align: center;" scope="col">DATE CREATED</th>
-                <th style="text-align: center;" scope="col">COMPLETED</th>
-                <th style="text-align: center;" scope="col">DELETE</th>
-            </thead>
-            {% for things in all_item %}
-            {% if user == things.user %}
-            {% if things.completed %}
-            <tr class="table-secondary">
-                <td class="rest">{{things.item}}</td>
-                <td><a href="{% url 'uncross' things.id %}">Uncross</a></td>
-                <td><strong>{{things.description}}</strong></td>
-                <td>{{things.created_date}}</td>
-                <td>{{things.completed}}</td>
-                <td style="text-align: center;"><a href="{% url 'delete' things.id %}">delete</a> </td>
-            </tr>
-            {% else %}
-            <tr>
-                <td>
-                    <h4><a href="{% url 'show' things.id %}">{{things.item}}</a></h4>
-                </td>
-                <td><a href="{% url 'crossoff' things.id %}">Cross Off</a></td>
-                <td><strong>{{things.description}}</strong></td>
-                <td>{{things.created_date}}</td>
-                <td>{{things.completed}}</td>
-                <td style="text-align: center;"><a href="{% url 'delete' things.id %}">delete</a> <br><a
-                        href="{% url 'edit' things.id %}"><strong>edit</strong></a>
-                </td>
-            </tr>
-            {% endif %}
-            {% endif %}
-            {% endfor %}
-        </table>
-    </div>
-    <br>
-    {% endif %}
-    {% endif %}
-    {% endblock %}
+{% block content %}
+<br><br>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
+{% endfor %}
+{% endif %}
+{% if user.is_authenticated %}
+{% if all_item %} <br>
+<center class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <table class="container table table-bordered table-striped table-hover">
+        <h3 class="todo">List Of Todo Items</h3>
+        <thead class="thead-dark">
+            <th style="text-align: center;" scope="col">TODO LIST</th>
+            <th style="text-align: center;" scope="col">CONDITION</th>
+            <th style="text-align: center;" scope="col">DESCRIPTION</th>
+            <th style="text-align: center;" scope="col">DATE CREATED</th>
+            <th style="text-align: center;" scope="col">COMPLETED</th>
+            <th style="text-align: center;" scope="col">DELETE</th>
+        </thead>
+        {% for things in all_item %}
+        {% if user == things.user %}
+        {% if things.completed %}
+        <tr class="table-secondary">
+            <td class="rest">{{things.item}}</td>
+            <td><a href="{% url 'uncross' things.id %}">Uncross</a></td>
+            <td><strong>{{things.description}}</strong></td>
+            <td>{{things.created_date}}</td>
+            <td>{{things.completed}}</td>
+            <td style="text-align: center;"><a href="{% url 'delete' things.id %}">delete</a> </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>
+                <h4><a href="{% url 'show' things.id %}">{{things.item}}</a></h4>
+            </td>
+            <td><a href="{% url 'crossoff' things.id %}">Cross Off</a></td>
+            <td><strong>{{things.description}}</strong></td>
+            <td>{{things.created_date}}</td>
+            <td>{{things.completed}}</td>
+            <td style="text-align: center;"><a href="{% url 'delete' things.id %}">delete</a> <br><a
+                    href="{% url 'edit' things.id %}"><strong>edit</strong></a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </table>
+</center>
+<br>
+{% endif %}
+{% endif %}
+{% endblock %}
