@@ -6,18 +6,20 @@
 <p>Sorry there was an error with your form</p>
 {% else %}
 <br><br>
-<div class="register shadow-lg p-3 mb-5 bg-white rounded">
-    <h1 class="createlbl">CREATE ACOUNT</h1>
-    <br>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
+<center>
+    <div class="register shadow-lg p-3 mb-5 bg-white rounded">
+        <h1 class="createlbl">CREATE ACOUNT</h1>
         <br>
-        <center>
-            <input type="submit" class="btn btn-secondary" value="Submit">
-        </center>
-    </form>
-</div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <center>
+                <input type="submit" class="btn btn-secondary" value="Submit">
+            </center>
+        </form>
+    </div>
+</center>
 {% endif %}
 
 

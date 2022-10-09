@@ -3,7 +3,7 @@
 }
 
 .hiv {
-  color: blue;
+  background-color: rgb(52, 52, 126);
 }
 
 .outside {
@@ -16,7 +16,7 @@
   border-color: chartreuse;
 }
 .lbl {
-  color: blue;
+  background-color: rgb(52, 52, 126);
   font-family: fantasy;
 }
 
@@ -37,10 +37,21 @@
 .createlbl {
   border: solid 2px;
   border-radius: 50px;
-  background-color: blue;
+  background-color: rgb(52, 52, 126);
   color: white;
   text-align: center;
 }
 .register {
+  width: fit-content;
   border: solid 2px;
+  background-color: rgb(52, 52, 126);
+}
+.lbl small {
+  font-size: medium;
+  color: black;
+}
+.arounds {
+  width: fit-content;
+  border: solid 2px;
+  background-color: rgb(52, 52, 126);
 }

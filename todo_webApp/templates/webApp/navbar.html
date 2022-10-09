@@ -16,7 +16,8 @@
             {% if user.is_authenticated %}
 
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'logout' %}">logout <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'logout' %}?next={% url 'granted' %}">logout <span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <h6 class="nav-link">{{user.username}}</h6> <span class="sr-only">(current)</span></a>

@@ -27,15 +27,4 @@ class ListForm(forms.ModelForm):
             'user': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select user', })}
 
 
-# User auth system
-# class UserResgistration(UserCreationForm):
-#     first_name = forms.CharField(
-#         max_length=50, widget={'class': 'from-control'})
-#     last_name = forms.CharField(
-#         max_length=50, widget={'class': 'from-control'})
-#     email = forms.EmailField(widget={'class': 'from-control'})
 
-    # class Meta:
-    #     model = List
-    #     fields = ('username', 'first_name', 'last_name',
-    #               'email', 'password1', 'password2')

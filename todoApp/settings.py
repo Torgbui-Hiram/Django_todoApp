@@ -41,6 +41,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'todoApp.urls'
 
+LOGOUT_REDIRECT_URL = ""
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
