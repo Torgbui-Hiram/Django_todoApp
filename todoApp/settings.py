@@ -15,6 +15,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['hiram.eu.pythonanywhere.com', '127.0.0.1', 'localhost']
 
+# Email sending
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '486da093e38ab3'
+EMAIL_HOST_PASSWORD = 'b67de520342c3c'
+EMAIL_PORT = '2525'
 
 # Application definition
 
@@ -27,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todo_webApp.apps.TodoWebappConfig',
     'members.apps.MembersConfig',
+    'message.apps.MessageConfig',
 ]
 
 MIDDLEWARE = [

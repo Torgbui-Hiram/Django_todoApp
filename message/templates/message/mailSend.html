@@ -1,17 +1,15 @@
 {% extends 'webApp/base.html' %}
 {% load static %}
 {% block content %}
-
 <br>
 <center>
-    <div class="add_item shadow-lg p-3 mb-5 bg-white rounded">
-        <h1 class="lbl">Add Item</h1>
+    <div class="arounds shadow-lg p-3 mb-5 bg-white rounded">
+        <h1 class="lbl">Send mail</h1>
         <form action="" method="POST">
             {% csrf_token %}
             {{form.as_p}}
-            <center>
-                <input class="btn btn-secondary" type="submit" value="submit">
-            </center>
+
+            <input type="submit" value="Send" class="btn btn-secondary">
         </form>
     </div>
 </center>

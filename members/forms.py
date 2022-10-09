@@ -11,12 +11,14 @@ class RegisterUserForm(UserCreationForm):
     last_name = forms.CharField(max_length=30, widget=forms.TimeInput(
         attrs={'class': 'form-control', 'placeholder': 'Last name'}))
 
+    email.label = ''
+    first_name.label = ''
+    last_name.label = ''
+
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name',
                   'email', 'password1', 'password2')
-        labels = {'username': 'username', 'first_name': '', 'last_name': '',
-                  'email': '', 'password1': '', 'password2': ''}
 
     def __init__(self, *args, **kwargs):
         super(RegisterUserForm, self).__init__(*args, **kwargs)
