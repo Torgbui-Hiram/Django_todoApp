@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">TODO-APP</a>
+    <a class="navbar-brand" href="#">TODO-APP</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,13 +7,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'add' %}">Add <span class="sr-only">(current)</span></a>
             </li>
-            {% if user.is_authenticated %}
 
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'logout' %}?next={% url 'granted' %}">logout <span
@@ -22,15 +22,15 @@
             <li class="nav-item active">
                 <h6 class="nav-link">{{user.username}}</h6> <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'send' %}">Mail <span class="sr-only">(current)</span></a>
+            </li>
             {% else %}
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'register' %}">Register <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'granted' %}">login <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'send' %}">Mail <span class="sr-only">(current)</span></a>
             </li>
             {% endif %}
 
