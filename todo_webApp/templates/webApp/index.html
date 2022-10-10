@@ -12,6 +12,19 @@
 </div>
 {% endfor %}
 {% endif %}
+<h6 class="lbls">MAKING LIFE EASY HELPS US TO BE FOCUS <small>NOT TO MISS DAILY PLANS</small></h6>
+<div class="imgbox">
+    {% if not user.is_authenticated %}
+    <img class="center-fit" src="{% static 'img/trial.jpg' %}" alt="">
+    {% endif %}
+</div>
+<h6>DAY TO DAY: <small> Note all your day to day plans down in one place.</small></h6><br>
+<p> <a href="{% url 'register' %}"><b class="signup">Signup</b></a>|<a href="{% url 'granted' %}"><b
+            class="login">Login</b></a> to keep
+    your self on track!
+    <small>We care about your plans been succesful</small>
+</p>
+
 {% if user.is_authenticated %}
 {% if all_item %} <br>
 <div class=".table-responsive shadow-lg p-3 mb-5 bg-white rounded" style="overflow: auto">
