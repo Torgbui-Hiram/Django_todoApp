@@ -11,7 +11,7 @@ class ListForm(forms.ModelForm):
         attrs={'class': 'form-control'}))
     # user = forms.Select(attrs={'class': 'form-select'})
     # description = forms.Textarea(attrs={'class': 'form-control'})
-    created_date = forms.DateTimeField(widget=forms.DateTimeInput(
+    created_date = forms.DateTimeField(widget=forms.SelectDateWidget(
         attrs={'class': 'form-control', 'placeholder': 'YYYY-MM-DD HH:MM:SS'}))
 
     class Meta:
@@ -25,6 +25,3 @@ class ListForm(forms.ModelForm):
         widgets = {'description': forms.Textarea(
             attrs={'class': 'form-control', 'placeholder': 'Please enter some details about your todo item!'}),
             'user': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select user', })}
-
-
-

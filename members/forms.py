@@ -14,14 +14,24 @@ class RegisterUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(RegisterUserForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['class'] = 'form-control'
-        self.fields['password1'].widget.attrs['class'] = 'form-control'
-        self.fields['password2'].widget.attrs['class'] = 'form-control'
 
         # setting the field labels to empty
         self.fields['username'].label = ''
         self.fields['email'].label = ''
         self.fields['first_name'].label = ''
         self.fields['last_name'].label = ''
+        self.fields['password1'].label = ''
+        self.fields['password2'].label = ''
+        self.fields['password1'].widget = forms.PasswordInput(
+            attrs={'placeholder': 'Enter password'})
+        self.fields['password2'].widget = forms.PasswordInput(
+            attrs={'placeholder': 'Confirm password'})
+        self.fields['password1'].help_text = ''
+        self.fields['password2'].help_text = ''
+        self.fields['username'].help_text = ''
+
+        self.fields['password1'].widget.attrs['class'] = 'form-control'
+        self.fields['password2'].widget.attrs['class'] = 'form-control'
 
     class Meta:
         model = User

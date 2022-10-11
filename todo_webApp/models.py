@@ -10,6 +10,11 @@ class List(models.Model):
     description = models.TextField(null=True, blank=True)
     completed = models.BooleanField(default=False, blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
 
     def __str__(self):
         return self.item + ' | ' + str(self.completed)
