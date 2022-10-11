@@ -78,17 +78,22 @@ h6 {
 }
 
 .signup {
-  color: chartreuse;
+  color: green;
+  font-weight: bolder;
+  font-size: x-large;
 }
 .login {
   color: rgb(52, 52, 126);
+  font-weight: bolder;
+  font-size: x-large;
 }
 .lbls {
   color: rgb(52, 52, 126);
   font-family: cursive;
+  font-size: larger;
+  font-weight: bolder;
 }
 .lbls small {
-  width: 50%;
   font-family: system-ui;
   color: red;
   font-weight: bold;

@@ -14,11 +14,10 @@
 {% endif %}
 
 <div class=".table-responsive shadow-lg p-3 mb-5 bg-white rounded" style="overflow: auto">
+    {% if not user.is_authenticated %}
     <h6 class="lbls">MAKING LIFE EASY HELPS US TO BE FOCUS <small>NOT TO MISS DAILY PLANS</small></h6>
     <div class="imgbox">
-        {% if not user.is_authenticated %}
         <img class="center-fit" src="{% static 'img/trial.jpg' %}" alt="">
-        {% endif %}
         <h6>DAY TO DAY: <small> Note all your day to day plans down in one place.</small></h6><br>
     </div>
     <p> <a href="{% url 'register' %}"><b class="signup">Signup</b></a>|<a href="{% url 'granted' %}"><b
@@ -26,6 +25,7 @@
         your self on track!
         <small>We care about your plans been succesful</small>
     </p>
+    {% endif %}
     {% if user.is_authenticated %}
     {% if all_item %} <br>
     <table class="container table table-bordered table-striped table-hover">
