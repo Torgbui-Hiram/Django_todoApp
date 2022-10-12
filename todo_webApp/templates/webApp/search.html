@@ -1,0 +1,15 @@
+{% extends 'webApp/base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="lbl">Search for your todo list!</h1>
+<br><br>
+{% if searched %}
+{{search}}
+<h1>You have searched for {{searched }}</h1>
+{% for names in todo %}
+{{names}} <br>
+{% endfor %}
+{% endif %}
+
+
+{% endblock %}

@@ -39,7 +39,7 @@
             <th style="text-align: center;" scope="col">DELETE</th>
         </thead>
         {% for things in all_item %}
-        {% if user == things.user %}
+        {% if user.username == things.user %}
         {% if things.completed %}
         <tr class="table-secondary">
             <td class="rest">{{things.item}}</td>

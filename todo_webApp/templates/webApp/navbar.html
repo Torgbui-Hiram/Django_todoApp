@@ -37,9 +37,11 @@
 
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="" placeholder="Search item" aria-label="Search" name="">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="">SEARCH FROM LIST</button>
+        <form class="d-flex" method=POST action="{% url 'search' %}">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search item" aria-label="Search"
+                name="searched">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="">SEARCH</button>
         </form>
     </div>
 </nav>

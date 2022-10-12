@@ -70,7 +70,17 @@ def edit_item(request, id):
     else:
         item = List.objects.get(pk=id)
         form = ListForm(request.POST or None, instance=item)
-        return render(request, 'webApp/edit.html', {'item': item, 'form': form})
+    return render(request, 'webApp/edit.html', {'item': item, 'form': form})
+
+
+# ----------------search item----------
+def shearch_item(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        todo = List.objects.filter(item__contains=searched)
+        return render(request, 'webApp/search.html', {'searched ': searched, 'todo': todo})
+    else:
+        return render(request, 'webApp/search.html', {})
 
 
 # add item to list
@@ -84,4 +94,4 @@ def add_item(request):
             return redirect('home')
     else:
         form = ListForm(request.POST or None)
-        return render(request, 'webApp/add_item.html', {'form': form})
+    return render(request, 'webApp/add_item.html', {'form': form})
