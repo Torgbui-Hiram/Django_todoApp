@@ -1,4 +1,6 @@
+from ctypes import cast
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,18 +10,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6lz2zudb%-mac=11jqn$ol9!pkht+n5$51kzw!5@#pcxl52a+s'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['hiram.eu.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Email sending
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '486da093e38ab3'
-EMAIL_HOST_PASSWORD = 'b67de520342c3c'
-EMAIL_PORT = '2525'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
 
 # Application definition
 
