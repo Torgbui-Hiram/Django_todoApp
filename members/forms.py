@@ -26,10 +26,11 @@ class RegisterUserForm(UserCreationForm):
             attrs={'placeholder': 'Enter password'})
         self.fields['password2'].widget = forms.PasswordInput(
             attrs={'placeholder': 'Confirm password'})
+        # seeting the placeholder text for the password help_text
         self.fields['password1'].help_text = ''
         self.fields['password2'].help_text = ''
         self.fields['username'].help_text = ''
-
+        # Setting the widget for the password 1 and 2 with form-control
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
 
