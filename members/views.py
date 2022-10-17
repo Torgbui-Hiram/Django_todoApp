@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from todo_webApp.models import List
 from django.contrib import auth
 from . forms import RegisterUserForm
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Register user
 
@@ -16,6 +18,14 @@ def register_user(request):
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
+            # Sending welcome email to new members
+            email = form.cleaned_data['email']
+            subject = 'KEEP UPDATED WITH UR PLANS DAILY'
+            body = f'Hi! welcome {username} to your safe todo App'
+            from_email = settings.EMAIL_HOST_USER
+            recipient_list = [email]
+            send_mail(subject, body, from_email,
+                      recipient_list, fail_silently=False)
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(
