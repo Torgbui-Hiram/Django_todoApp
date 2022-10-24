@@ -16,3 +16,21 @@ class List(models.Model):
     def publish(self):
         self.created_date = timezone.now()
         self.save()
+
+
+class Room(models. Model):
+    user_name = models.CharField(max_length=100, blank=True)
+    room_name = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.user_name + '|' + self.room_name
+
+
+class Message(models.Model):
+    value = models.CharField(max_length=1000000)
+    date = models.DateTimeField(default=timezone.now, blank=True)
+    room = models.CharField(max_length=2000000)
+    user = models.ForeignKey(Room, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.room

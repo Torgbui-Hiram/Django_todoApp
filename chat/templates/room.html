@@ -4,9 +4,13 @@
 {% block content %}
 <br><br>
 <center>
-    <form action="" method=POST>
+    <form action="" method="POST">
         {% csrf_token %}
-        {{form.as_p}}
+        <label for="room_name">Roomname</label>
+        <input type="text" name="user_name" id="room_name" class="form-control"><br>
+        <label for="user_name">Username</label>
+        <input type="text" name="room_name" id="user_name" class="form-control"><br>
+        <hr>
         <input type="submit" class="btn btn-secondary" value="Submit">
     </form>
 </center>

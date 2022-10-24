@@ -3,7 +3,16 @@
 <br>
 {% block content %}
 <br>
-
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
 <div class="container shadow p-3 mb-5 bg-white rounded">
     <div class="box">
         <div class="collapse" id="navbarToggleExternalContent">
@@ -22,10 +31,10 @@
         <br>
         <form action="" method=POST class="input">
             {% csrf_token %}
-            <label for="roomName">Roomname</label>
-            <input type="text" name="roomName" id="roomName" class="form-control"><br>
-            <label for="userName">Username</label>
-            <input type="text" name="userName" id="userName" class="form-control"><br>
+            <label for="room_name">RoomName</label>
+            <input type="text" name="room_name" id="room_name" class="form-control"><br>
+            <label for="user_name">UserName</label>
+            <input type="text" name="user_name" id="user_name" class="form-control"><br>
             <input type="submit" class="btn btn-secondary" value="Submit">
             <hr>
             <small>Keeping in touch with friends mad easy!</small>

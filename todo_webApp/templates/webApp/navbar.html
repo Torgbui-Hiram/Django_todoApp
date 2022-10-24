@@ -25,6 +25,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'send' %}">Mail <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'chat' %}">Chat <span class="sr-only">(current)</span></a>
+            </li>
             {% else %}
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'register' %}">Register <span class="sr-only">(current)</span></a>
@@ -32,9 +35,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'granted' %}">login <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'chat' %}">Chat <span class="sr-only">(current)</span></a>
-            </li>
+
+
+
             {% endif %}
 
 
