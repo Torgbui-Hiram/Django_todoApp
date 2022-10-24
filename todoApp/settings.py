@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'todo_webApp.apps.TodoWebappConfig',
     'members.apps.MembersConfig',
     'message.apps.MessageConfig',
+    'chat.apps.ChatConfig',
 ]
 
 MIDDLEWARE = [

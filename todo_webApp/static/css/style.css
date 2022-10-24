@@ -99,3 +99,9 @@ h6 {
   font-weight: bold;
   border-radius: 50px;
 }
+.input .btn {
+  margin-left: 500px;
+}
+.input small {
+  margin-left: 430px;
+}

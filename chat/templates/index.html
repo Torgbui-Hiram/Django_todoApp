@@ -1,0 +1,35 @@
+{% extends 'webApp/base.html' %}
+{% load static %}
+<br>
+{% block content %}
+<br>
+
+<div class="container shadow p-3 mb-5 bg-white rounded">
+    <div class="box">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+        <br>
+        <form action="" method=POST class="input">
+            {% csrf_token %}
+            <label for="roomName">Roomname</label>
+            <input type="text" name="roomName" id="roomName" class="form-control"><br>
+            <label for="userName">Username</label>
+            <input type="text" name="userName" id="userName" class="form-control"><br>
+            <input type="submit" class="btn btn-secondary" value="Submit">
+            <hr>
+            <small>Keeping in touch with friends mad easy!</small>
+        </form>
+    </div>
+</div>
+{% endblock %}
